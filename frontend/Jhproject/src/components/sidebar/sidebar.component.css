@@ -1,0 +1,33 @@
+.homelogo-button {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(51, 55, 74);
+    height: 80px;
+    width: 80px;
+    gap: 3px;
+    font-size: small;
+    color: white;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.244);
+}
+
+.homelogo-button:hover {
+    background-color: rgb(33, 36, 48);
+}
+
+.home-icon {
+    font-size: xx-large;
+    width: 25px;
+    font-weight: 900;
+}
+
+.side-bar {
+    min-height: 100%;
+    position: fixed;
+    background-color: rgb(51, 55, 74);
+}

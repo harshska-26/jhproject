@@ -1,0 +1,148 @@
+.signin-container {
+    margin-left: 40px;
+    margin-top: 120px;
+    max-width: 590px;
+    box-sizing: border-box;
+    flex-basis: 50%;
+    max-width: 590px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    padding-bottom: 50px;
+}
+
+.signin-container h1 {
+    font-size: 50px;
+    font-weight: 500;
+    padding: 0px 20px;
+    margin: 0;
+}
+
+.signin-container input {
+    border: none;
+    font-size: large;
+    height: 50px;
+    border-bottom: 1px solid black;
+    width: 400px;
+}
+
+.first-button-container button {
+    border: none;
+    font-size: large;
+    font-weight: 400;
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    text-align: left;
+    height: 50px;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.first-button-container button:hover {
+    text-decoration: none;
+}
+
+.signin-container input:focus {
+    outline: none;
+    border: none;
+    font-size: large;
+    height: 50px;
+    border-bottom: 2px solid rgb(237, 101, 83);
+}
+
+.input-containers {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    gap: 10px;
+    padding: 0px 20px;
+    padding-bottom: 20px;
+}
+
+.first-button-container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    gap: 10px;
+    padding: 0px 20px;
+    padding-bottom: 20px;
+}
+
+
+.second-button-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: baseline;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 20px;
+    padding-bottom: 20px;
+}
+
+#checkbox-input {
+    height: 25px;
+    width: 25px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.signin-container label {
+    display: flex;
+    align-items: center;
+    font-size: large;
+    font-weight: 400;
+    padding-top: 30px;
+}
+
+
+
+#continue-button{
+    background-color: rgb(237, 101, 83);
+    color: white;
+    width: 400px;
+    text-align: center;
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: larger;
+    font-weight: 500;
+    font-style: normal;
+    padding: 15px;
+    border: none;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+#register-button{
+    background-color:white;
+    color:  rgb(237, 101, 83);
+    width: 400px;
+    text-align: center;
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: larger;
+    font-weight: 500;
+    font-style: normal;
+    padding: 15px;
+    border: 1px solid rgb(237, 101, 83);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+#register-button:hover, #continue-button:hover{
+    background-color: rgb(167, 73, 60);
+    color: white;
+}
+
+.signin-top-container{
+    display: flex;
+}

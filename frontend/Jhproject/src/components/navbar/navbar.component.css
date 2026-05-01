@@ -1,0 +1,18 @@
+.nav-bar {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    box-shadow: 3px 3px 3px 3px #00000079;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+}
+
+.nav-logo {
+    padding-left: 40px;
+    height: 60px;
+    width: 200px;
+    cursor: pointer;
+}

@@ -1,0 +1,10 @@
+.layout{
+    display: flex;
+}
+
+.right-side{
+    width: 100vw;
+    padding-left: 80px;
+    display: flex;
+    flex-direction: column;
+}
