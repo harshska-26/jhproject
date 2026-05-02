@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { responseTest } from "../../service/jhproject.service"
 import "./login.component.css"
@@ -6,6 +6,14 @@ import "./login.component.css"
 export const Login = () => {
     const [username, setUsername] = useState("")
     const navigate = useNavigate()
+
+    useEffect(() => {
+        const dataFetch = async() => {
+            const Res = await responseTest();
+            return Res;
+        }
+        dataFetch();
+    },[])
 
     const handleClick = async () => {
         navigate("/password", { state: username })

@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const responseTest = async () => {
     try {
-        const res = await axios.get("http://localhost:7000/getRequest")
+        const res = await axios.get("http://localhost:7000/getUsers")
         console.log(res)
         return res.data;
     } catch (e) {
