@@ -1,0 +1,37 @@
+.need-help-container {
+    background-color: whitesmoke;
+    height: 300px;
+    padding: 30px;
+    margin-left: 40px;
+    margin-top: 120px;
+    max-width: 590px;
+    box-sizing: border-box;
+    flex-basis: 50%;
+    max-width: 590px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    padding-bottom: 50px;
+    gap: 10px;
+}
+
+
+#faq-button {
+    border: none;
+    font-size: large;
+    font-weight: 400;
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    text-align: left;
+    height: 50px;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#faq-button:hover {
+    text-decoration: none;
+}

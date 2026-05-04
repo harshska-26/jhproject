@@ -146,3 +146,7 @@
 .signin-top-container{
     display: flex;
 }
+
+.toast{
+    background-color: black;
+}

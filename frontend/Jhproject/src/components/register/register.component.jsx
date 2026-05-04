@@ -2,14 +2,19 @@ import { useState } from "react";
 import "./register.component.css"
 import { useNavigate } from "react-router-dom"
 import { dataSend } from "../../service/jhproject.service";
+import toast, { Toaster } from "react-hot-toast";
 
 export const RegisterComp = () => {
     const navigate = useNavigate();
 
+    const notify = () => {
+        toast.error("Please fill all the fields before trying to continue.")
+    }
+
     const handleRegisterClick = async() => {
         const { username, email, phoneNumber } = formData;
         if (!username || !email || !phoneNumber) {
-            alert("Please fill in all fields before registering!");
+            notify();
             return;
         }
 
@@ -54,24 +59,23 @@ return (
                 <input name="email" required onChange={handleChange} onKeyDown={handleKeyDown} type="email" placeholder="Enter your email"></input>
                 <h3>Phone Number</h3>
                 <input name="phoneNumber" required onChange={handleChange} onKeyDown={handleKeyDown} type="number" placeholder="Enter your number"></input>
-                <label>
-                    <input id="checkbox-input" type="checkbox" name="feature" value="newsletter" />
-                    Remember Username
-                </label>
             </div>
             <div className="first-button-container">
-                <button >Forgot Username</button>
-                <button >Forgot Password</button>
-                <button >Forgot Email</button>
+                <button >Forgot Username ?</button>
+                <button >Forgot Password ?</button>
+                <button >Forgot Email ?</button>
             </div>
             <div className="second-button-container">
                 <button onClick={handleRegisterClick} id="register-button">Register</button>
+                <Toaster toastOptions={{
+                    style :{
+                        color:'white',
+                        padding: '25px',
+                        background: 'black'
+                    },
+                    icon: '⚠️'
+                }}/>
             </div>
-        </div>
-        <div className="need-help-container">
-            <h1>Need Help ?</h1>
-            <button id="faq-button">See Frequently Asked Questions</button>
-            <h3>Access and use of this website and mobile app are for authorized users only.</h3>
         </div>
     </div>
 )
