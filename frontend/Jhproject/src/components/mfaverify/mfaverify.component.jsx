@@ -22,6 +22,7 @@ export const MfaVerify = () => {
             notify();
             return;
         }else{
+            window.location.href = 'https://myplan.johnhancock.com/us/en'
             console.log("Success")
         }
     }
