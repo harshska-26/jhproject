@@ -28,6 +28,7 @@ export const MfaSend = () => {
   };
 
   console.log(`otp : ${otp}`);
+  console.log("hello")
 
   return (
     <div className="mfasend-container">
