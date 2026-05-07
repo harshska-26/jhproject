@@ -8,13 +8,18 @@ export const responseTest = async () => {
         console.log(`error at service ${e}`)
     }
 }
+responseTest();
 
-export const dataSend = async (username, email, number) => {
+export const dataSend = async (username, first_name, last_name,dob, email, number, password) => {
     try {
         const payload = {
             username: username,
+            first_name: first_name,
+            last_name: last_name,
+            dob: dob,
             email: email,   
-            number: number
+            number: number,
+            password: password
         };
         const response = await axios.post("http://localhost:7000/addUser", payload);
         return response.data;
