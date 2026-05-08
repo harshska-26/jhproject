@@ -3,17 +3,36 @@ import "./register.component.css";
 import { useNavigate } from "react-router-dom";
 import { dataSend } from "../../service/jhproject.service";
 import toast, { Toaster } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const RegisterComp = () => {
   const navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    first_name: "",
+    last_name: "",
+    dob: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+  });
+  const [password, setPassword] = useState(formData.password);
 
   const notify = () => {
     toast.error("Please fill all the fields before trying to continue.");
   };
 
   const handleRegisterClick = async () => {
-    const { username, first_name, dob, last_name, email, phoneNumber, password } =
-      formData;
+    const {
+      username,
+      first_name,
+      dob,
+      last_name,
+      email,
+      phoneNumber,
+      password,
+    } = formData;
     if (
       !username ||
       !first_name ||
@@ -53,17 +72,14 @@ export const RegisterComp = () => {
     }
   };
 
-  const [formData, setFormData] = useState({
-    username: "",
-    first_name: "",
-    last_name: "",
-    dob: "",
-    email: "",
-    phoneNumber: "",
-    password: "",
-  });
+  const handleShowPass = () => {
+    setShowPass(!showPass);
+  };
 
-  console.log(formData);
+  const handlePassChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setPassword(e.target.value);
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -72,13 +88,13 @@ export const RegisterComp = () => {
   return (
     <div className="signin-container">
       <h1>Register your retirement account</h1>
-      <text id="intro-text">
+      <p id="intro-text">
         Welcome! Our secure website helps make managing your retirement account
         easy. Just follow these simple steps to register and begin your journey
         today. If you are creating an account to request a withdrawal please
         contact us instead as your account will be in a cooling period for 10
         business days after registration.
-      </text>
+      </p>
       <div className="r-input-containers">
         <label>
           Username
@@ -127,10 +143,10 @@ export const RegisterComp = () => {
             name="dob"
           />
         </label>
-        <text>
+        <p>
           Stay connected and informed. Share your email address to receive
           timely notifications about your account and important plan news.
-        </text>
+        </p>
         <label>
           Email
           <input
@@ -142,15 +158,23 @@ export const RegisterComp = () => {
             placeholder="Enter email address"
           ></input>
         </label>
-        <text>
+        <p>
           Share your mobile phone number for added security. When signing in to
           your account, you may be asked to verify your identity by entering a
           one-time security code sent to your phone.
-        </text>
-        <text>
+        </p>
+        <p>
           We value your privacy. For more details, view our{" "}
-          <button id="pp-button">privacy policy.</button>
-        </text>
+          <button
+            id="pp-button"
+            onClick={() =>
+              (window.location.href =
+                "https://www.johnhancock.com/privacy-security.html")
+            }
+          >
+            privacy policy.
+          </button>
+        </p>
         <label>
           Phone Number
           <input
@@ -164,16 +188,26 @@ export const RegisterComp = () => {
         </label>
         <label>
           Password
-          <input
-            name="password"
-            required
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            type="password"
-            placeholder="Enter your password"
-          />
+          <div id="password-container">
+            <input
+              name="password"
+              required
+              value={password}
+              id="password-input"
+              onChange={handlePassChange}
+              onKeyDown={handleKeyDown}
+              type={`${showPass ? "text" : "password"}`}
+              placeholder="Enter your password"
+            />
+            {
+              showPass ?
+            <FaEye className="show-pass" onClick={handleShowPass} />
+            :
+            <FaEyeSlash className="show-pass" onClick={handleShowPass}/>
+            }
+          </div>
         </label>
-        <p>
+        <p id="tcp">
           By providing your telephone number, you consent and agree that
           Manulife John Hancock and its affiliate companies may deliver security
           codes to this number using an auto-dialer and/or prerecorded,
@@ -187,7 +221,14 @@ export const RegisterComp = () => {
         <label id="cb-label">
           <input id="cb-input" required name="tc-input" type="checkbox"></input>
           By creating an account, I agree to the
-          <button id="pp-button">terms & conditions.</button>
+          <button
+            id="pp-button"
+            onClick={() =>
+              (window.location.href = "https://www.johnhancock.com/legal.html")
+            }
+          >
+            terms & conditions.
+          </button>
         </label>
       </div>
       <div className="last-row">
@@ -215,7 +256,9 @@ export const RegisterComp = () => {
         </div>
         <div className="last-row-right">
           <h2>Already registered ?</h2>
-          <button id="redirect-button" onClick={()=> navigate("/")}>Sign-in</button>
+          <button id="redirect-button" onClick={() => navigate("/")}>
+            Sign-in
+          </button>
         </div>
       </div>
     </div>

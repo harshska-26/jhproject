@@ -183,7 +183,12 @@
 }
 
 .r-input-containers p{
-    font-weight: 300;
+    font-weight: 800;
+    font-size: larger;
+  }
+  
+  #tcp{
+    font-weight: 400;
     font-size: larger;
     line-height: 1.5;
 }
@@ -232,4 +237,14 @@
 #redirect-button:hover{
     background-color: rgb(167, 73, 60);
     color: white;
+}
+
+#password-container{
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.show-pass{
+  cursor: pointer;
 }

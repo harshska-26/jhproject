@@ -6,6 +6,8 @@ const { addUserCtrl } = require("./controllers/addUser.controller");
 const client = require("./database");
 const { getOtp } = require("./controllers/getOtp.controller");
 const { getUsers } = require("./controllers/getUsers.controller");
+const { getUserVal } = require("./validations/getUser.validation");
+const { getUserCtrl } = require("./controllers/getUser.controller");
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -18,6 +20,7 @@ const PORT = process.env.PORT || 3000;
 app.get("/getUsers", getUsers)
 app.get("/getOtp", getOtp)
 app.post("/addUser", addUserVal, addUserCtrl )
+app.get("/getUser", getUserVal, getUserCtrl )
 
 app.listen(PORT, () => {
   console.log(`server is running on PORT ${PORT}`);

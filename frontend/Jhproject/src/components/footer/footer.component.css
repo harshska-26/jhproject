@@ -34,9 +34,15 @@
 .footer-second-line-rightside{
     display: flex;
     flex-direction: column;
-    gap: 20px;
     padding: 30px;
     font-size: smaller;
+    color: white;
+}
+
+.footer-second-line-rightside p{
+    display: flex;
+    font-size: medium;
+    line-height: 1.5;
     color: white;
 }
 
