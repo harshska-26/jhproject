@@ -1,29 +1,24 @@
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import "./mfaverify.component.css"
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useState } from "react";
+import axios from "axios";
 
 export const MfaVerify = () => {
     const navigate = useNavigate();
-    const location = useLocation();
     const [inputOtp, setinputOtp] = useState(0)
-    const receivedOtp = location.state?.otp;
-
-    const notify = () => {
-        toast.error("Otp invalid/missing")
-    }
 
     const backClickHandle = () => {
         navigate("/mfasend")
     }
 
-    const verifyClickHandle = () => {
-        if(!inputOtp || inputOtp != receivedOtp){
-            notify();
-            return;
-        }else{
-            window.location.href = 'https://myplan.johnhancock.com/us/en'
-            console.log("Success")
+    const verifyClickHandle = async() => {
+        try{
+            await axios.post("/verify-otp", { otp: inputOtp });
+            navigate("/testpage")
+        }catch(e){
+            console.log(`error at click : ${e}`)
+            throw e;
         }
     }
 

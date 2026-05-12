@@ -1,0 +1,14 @@
+.testcomp-container {
+    margin-left: 40px;
+    margin-top: 120px;
+    max-width: 590px;
+    box-sizing: border-box;
+    flex-basis: 50%;
+    max-width: 590px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    padding-bottom: 50px;
+    gap: 10px;
+}

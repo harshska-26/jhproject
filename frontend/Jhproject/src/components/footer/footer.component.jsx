@@ -3,7 +3,7 @@ import "./footer.component.css"
 
 export const Footer = () => {
     return (
-        <>
+        <div className="footer">
             <div className="footer-first-line">
                 <button id="contact-button"><CiPhone />Contact Us</button>
                 <div className="footer-first-line-rightside">
@@ -30,6 +30,6 @@ export const Footer = () => {
                     <p>MGTS-P40162-GE<br /></p>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -6,6 +6,7 @@ import { RegisterPage } from './Pages/register.page'
 import { PasswordPage } from './Pages/password.page'
 import { MfaSendPage } from './Pages/mfasend.page'
 import { MfaVerifyPage } from './Pages/mfaverify.page'
+import { Test } from './Pages/test.page'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/password' element={<PasswordPage/>}/>
         <Route path='/mfasend' element={<MfaSendPage />}/>
         <Route path='/mfaverify' element={<MfaVerifyPage/>}/> 
+        <Route path='/testpage' element={<Test/>}/>
         </Route>
       </Routes>
     </>

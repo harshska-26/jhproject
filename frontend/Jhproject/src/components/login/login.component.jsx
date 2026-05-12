@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { responseTest } from "../../service/jhproject.service";
 import "./login.component.css";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,6 +12,7 @@ export const Login = () => {
 
   useEffect(() => {
     const dataFetch = async () => {
+      await axios.get("/getUsers");
       const Res = await responseTest();
       setUsers(Res.users);
       return Res;

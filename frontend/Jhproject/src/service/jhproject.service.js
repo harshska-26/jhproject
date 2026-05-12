@@ -1,14 +1,18 @@
 import axios from "axios";
 
+const API = axios.create({
+  baseURL: "http://localhost:7000",
+  withCredentials: true,
+});
+
 export const responseTest = async () => {
   try {
-    const res = await axios.get("http://localhost:7000/getUsers");
+    const res = await API.get("/getUsers");
     return res.data;
   } catch (e) {
     console.log(`error at service ${e}`);
   }
 };
-responseTest();
 
 export const dataSend = async (
   username,
@@ -29,7 +33,7 @@ export const dataSend = async (
       number: number,
       password: password,
     };
-    const response = await axios.post("http://localhost:7000/addUser", payload);
+    const response = await API.post("/addUser", payload);
     return response.data;
   } catch (e) {
     console.log(`error at service ${e}`);
@@ -38,7 +42,7 @@ export const dataSend = async (
 
 export const resOtp = async () => {
   try {
-    const res = await axios.get("http://localhost:7000/getOtp");
+    const res = await API.get("/getOtp");
     return res.data;
   } catch (e) {
     console.log(`error at service ${e}`);
@@ -47,12 +51,26 @@ export const resOtp = async () => {
 
 export const getUser = async (username) => {
   try {
-    const res = await axios.get("http://localhost:7000/getUser", {
+    const res = await API.get("/getUser", {
       params: {username: username},
-    });
+      });
     return res.data;
   } catch (e) {
     console.log(e.message);
+    throw e;
+  }
+};
+
+export const loginUser = async (username, password) => {
+  try {
+    const payload = {
+      username: username,
+      password: password,
+    }
+    const response = await API.post("/login", payload);
+    return response.data;
+  } catch (e) {
+    console.log(`Login service error: ${e}`);
     throw e;
   }
 };

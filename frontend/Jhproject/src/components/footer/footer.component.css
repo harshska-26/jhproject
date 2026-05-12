@@ -1,3 +1,8 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+}
+
 .footer-first-line{
     background-color: rgb(40, 43, 61);
     height: 60px;

@@ -1,45 +1,26 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./password.component.css";
 import toast, { Toaster } from "react-hot-toast";
-import { useEffect, useState } from "react";
-import { getUser } from "../../service/jhproject.service";
-import bcrypt from "bcryptjs";
+import { useState } from "react";
+import { loginUser } from "../../service/jhproject.service";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const Password = () => {
   const [password, setPassword] = useState("");
-  const [hashedPassword, setHashedPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const username = location.state;
 
-  const notify = () => {
-    toast.error("Please enter the password!");
-  };
-
-  useEffect(() => {
-    const dataService = async () => {
-      const data = await getUser(username);
-      setHashedPassword(data.password);
-    };
-    dataService();
-  }, []);
-
   const SigninClickHandle = async () => {
     if (!password) {
-      notify();
+      toast.error("Please enter the password!");
       return;
     }
-
     try {
-      const isMatch = await bcrypt.compare(password, hashedPassword);
-      if (isMatch) {
-        console.log("Password is correct!");
-        navigate("/mfasend");
-      } else {
-        toast.error("Incorrect password!");
-      }
+      const data = await loginUser(username, password);
+      console.log("login successful", data);
+      navigate("/mfasend")
     } catch (err) {
       console.error("Comparison error:", err);
     }

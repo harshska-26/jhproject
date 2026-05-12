@@ -12,5 +12,12 @@ html {
   font-weight: 300;
   font-style: normal;
   min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+}
+
+#root{
+  display: flex;
+  justify-content: space-between;
 }
